@@ -1,0 +1,26 @@
+#calculatorBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    gap: 20px;
+
+    border: 1px solid black;
+    height: 500px;
+    width: 400px;
+}
+
+.input {
+    display: flex;
+    gap: 30px;
+}
+
+.input * {
+    border: 1px solid pink;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
