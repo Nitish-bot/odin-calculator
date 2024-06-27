@@ -19,7 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 else {
                     break;
                 }
-
+                case 1:
+                    if (button.matches('.num') || button.matchess('.zero')) {
+                        fnum.concat(button.value);
+                        pressCount++;
+                    }
+                    else if (button.matches('.decimal') && !decimal) {
+                        fnum.concat(button.value);
+                        decimal = true;
+                    }
         }
     });
 });
