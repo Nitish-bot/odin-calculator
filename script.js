@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //Stage of calculation : 0 Init  1 Fnum  2 Operator  3 Snum  4 Result
     //pressCount Number of button presses
 
+    function clear() {
+
+    }
+
     calcBody.addEventListener('click', (e) => {
         const button = e.target;
         switch (stage) {
@@ -19,15 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 else {
                     break;
                 }
-                case 1:
-                    if (button.matches('.num') || button.matchess('.zero')) {
-                        fnum.concat(button.value);
-                        pressCount++;
-                    }
-                    else if (button.matches('.decimal') && !decimal) {
-                        fnum.concat(button.value);
-                        decimal = true;
-                    }
+            case 1:
+                if (button.matches('.num') || button.matchess('.zero')) {
+                    fnum.concat(button.value);
+                    pressCount++;
+                }
+                else if (button.matches('.decimal') && !decimal) {
+                    fnum.concat(button.value);
+                    decimal = true;
+                }
+                else if (button.matches('#clear')) clear();
+                else if (button.matches('#backspace')) backspace();
+                else if (button.matches('#equal')) equal();
+                else {
+                    break;
+                }
         }
     });
 });
