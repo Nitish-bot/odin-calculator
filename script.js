@@ -47,6 +47,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     pressCount++;
                     stage++;
                 }
+                else if (button.matches('#clear')) clear();
+                else if (button.matches('#backspace')) backspace();
+                else if (button.matches('#equal')) equal();
+                break;
+            case 3:
+                if (button.matches('.num') || button.matchess('.zero')) {
+                    fnum.concat(button.value);
+                    pressCount++;
+                }
+                else if (button.matches('.decimal') && !decimal) {
+                    fnum.concat(button.value);
+                    decimal = true;
+                }
+                else if (button.matches())
+                else if (button.matches('#clear')) clear();
+                else if (button.matches('#backspace')) backspace();
+                else if (button.matches('#equal')) equal();
         }
     });
 });
