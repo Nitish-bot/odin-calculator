@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         display.innerText = result;
         fnum = result;
+        operator = '';
         snum = '';
         stage = 1;
     }
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 1:
                 if (button.matches('.num') || button.matches('.zero')) {
-                    fnum.concat(button.value);
+                    fnum = fnum.concat(button.value);
                     pressCount++;
                 }
                 else if (button.matches('.decimal') && !decimal) {
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     operator = button.value;
                     stage++;
                 }
+                display.innerText = fnum + ' ' + operator;
                 break;
             case 2:
                 if (button.matches('.operator')) {
@@ -84,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (button.matches('#clear')) clear();
                 else if (button.matches('#backspace')) backspace();
                 else if (button.matches('#equal')) equal();
+                display.innerText = fnum + ' ' + operator + ' ' + snum;
                 break;
             case 3:
                 if (button.matches('.num') || button.matches('.zero')) {
@@ -97,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (button.matches('#clear')) clear();
                 else if (button.matches('#backspace')) backspace();
                 else if (button.matches('#equal')) equal();
+                display.innerText = fnum + ' ' + operator + ' ' + snum;
                 break;
         }
     });
