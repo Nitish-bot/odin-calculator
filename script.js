@@ -18,6 +18,27 @@ document.addEventListener('DOMContentLoaded', () => {
         fnum = '', operator = '', snum = '';
     }
 
+    function equal() {
+        if (fnum = '') return;
+        else if (snum = '') display.innerText = fnum;
+        else {
+            switch (operator) {
+                case 'div':
+                    display.innerText = (parseFloat(fnum) / parseFloat(snum)).toFixed(4);
+                    break;
+                case 'mult':
+                    display.innerText = (parseFloat(fnum) * parseFloat(snum)).toFixed(4);
+                    break;
+                case 'sub':
+                    display.innerText = (parseFloat(fnum) - parseFloat(snum)).toFixed(4);
+                    break;
+                case 'add':
+                    display.innerText = (parseFloat(fnum) + parseFloat(snum)).toFixed(4);
+                    break;
+            }
+        }
+    }
+
     calcBody.addEventListener('click', (e) => {
         const button = e.target;
         switch (stage) {
@@ -67,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     fnum.concat(button.value);
                     decimal = true;
                 }
-                else if (button.matches())
                 else if (button.matches('#clear')) clear();
                 else if (button.matches('#backspace')) backspace();
                 else if (button.matches('#equal')) equal();
