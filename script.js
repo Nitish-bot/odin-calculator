@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let result;
 
         if (fnum === '') return;
-        else if (snum === '') display.innerText = fnum;
+        else if (snum === '') result = fnum;
         else {
             switch (operator) {
                 case 'div':
@@ -40,12 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         display.innerText = result;
         fnum = result;
-        snume = '';
+        snum = '';
         stage = 1;
     }
 
     calcBody.addEventListener('click', (e) => {
-        display.innerText = 'num';
         const button = e.target;
         switch (stage) {
             case 0:
