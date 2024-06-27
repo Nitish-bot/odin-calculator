@@ -20,9 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     pressCount++;
                     stage++;
                 }
-                else {
-                    break;
-                }
+                break;
             case 1:
                 if (button.matches('.num') || button.matchess('.zero')) {
                     fnum.concat(button.value);
@@ -35,8 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (button.matches('#clear')) clear();
                 else if (button.matches('#backspace')) backspace();
                 else if (button.matches('#equal')) equal();
-                else {
-                    break;
+                else if (button.matches('.operator')) {
+                    operator = button.value;
+                    stage++;
+                }
+                break;
+            case 2:
+                if (button.matches('.operator')) {
+                    operator = button.value();
+                }
+                else if (button.matches('.num')) {
+                    snum.concat(button.value);
+                    pressCount++;
+                    stage++;
                 }
         }
     });
