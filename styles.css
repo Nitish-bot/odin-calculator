@@ -7,7 +7,7 @@
 
     border: 1px solid black;
     height: 500px;
-    width: 400px;
+    width: 350px;
 }
 
 #display {
@@ -20,12 +20,12 @@
     padding: 10px;
     
     height: 75px;
-    width: 300px;
+    width: 275px;
 }
 
 .input {
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .input * {
