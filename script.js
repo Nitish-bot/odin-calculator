@@ -18,24 +18,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function equal() {
+        let result;
+
         if (fnum === '') return;
         else if (snum === '') display.innerText = fnum;
         else {
             switch (operator) {
                 case 'div':
-                    display.innerText = (parseFloat(fnum) / parseFloat(snum)).toFixed(4);
+                    result = (parseFloat(fnum) / parseFloat(snum)).toFixed(4);
                     break;
                 case 'mult':
-                    display.innerText = (parseFloat(fnum) * parseFloat(snum)).toFixed(4);
+                    result = (parseFloat(fnum) * parseFloat(snum)).toFixed(4);
                     break;
                 case 'sub':
-                    display.innerText = (parseFloat(fnum) - parseFloat(snum)).toFixed(4);
+                    result = (parseFloat(fnum) - parseFloat(snum)).toFixed(4);
                     break;
                 case 'add':
-                    display.innerText = (parseFloat(fnum) + parseFloat(snum)).toFixed(4);
+                    result = (parseFloat(fnum) + parseFloat(snum)).toFixed(4);
                     break;
             }
         }
+        display.innerText = result;
+        fnum = result;
+        snume = '';
+        stage = 1;
     }
 
     calcBody.addEventListener('click', (e) => {
