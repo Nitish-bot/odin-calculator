@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+    //Stage of calculation : 0 Init  1 Fnum  2 Operator  3 Snum  4 Result
+    //pressCount Number of button presses
     const calcBody = document.getElementById('calculatorBody');
     const display = document.getElementById('display');
     let stage = 0;
     let pressCount = 0;
     let decimal = false;
     let fnum = '', operator = '', snum = '';
-    //Stage of calculation : 0 Init  1 Fnum  2 Operator  3 Snum  4 Result
-    //pressCount Number of button presses
     
     //Function declarations
     function clear() {
@@ -19,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function equal() {
-        if (fnum = '') return;
-        else if (snum = '') display.innerText = fnum;
+        if (fnum === '') return;
+        else if (snum === '') display.innerText = fnum;
         else {
             switch (operator) {
                 case 'div':
@@ -40,22 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     calcBody.addEventListener('click', (e) => {
+        display.innerText = 'num';
         const button = e.target;
         switch (stage) {
             case 0:
                 if (button.matches('.num')) {
-                    fnum.concat(button.value);
+                    fnum = button.value;
+                    display.innerText = fnum;
                     pressCount++;
                     stage++;
                 }
                 break;
             case 1:
-                if (button.matches('.num') || button.matchess('.zero')) {
+                if (button.matches('.num') || button.matches('.zero')) {
                     fnum.concat(button.value);
                     pressCount++;
                 }
                 else if (button.matches('.decimal') && !decimal) {
-                    fnum.concat(button.value);
+                    fnum = fnum.concat(button.value);
                     decimal = true;
                 }
                 else if (button.matches('#clear')) clear();
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     operator = button.value();
                 }
                 else if (button.matches('.num')) {
-                    snum.concat(button.value);
+                    snum = button.value;
                     pressCount++;
                     stage++;
                 }
@@ -80,12 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (button.matches('#equal')) equal();
                 break;
             case 3:
-                if (button.matches('.num') || button.matchess('.zero')) {
-                    fnum.concat(button.value);
+                if (button.matches('.num') || button.matches('.zero')) {
+                    snum = snum.concat(button.value);
                     pressCount++;
                 }
                 else if (button.matches('.decimal') && !decimal) {
-                    fnum.concat(button.value);
+                    snum = snum.concat(button.value);
                     decimal = true;
                 }
                 else if (button.matches('#clear')) clear();
