@@ -1,14 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
     const calcBody = document.getElementById('calculatorBody');
+    const display = document.getElementById('display');
     let stage = 0;
     let pressCount = 0;
     let decimal = false;
     let fnum = '', operator = '', snum = '';
     //Stage of calculation : 0 Init  1 Fnum  2 Operator  3 Snum  4 Result
     //pressCount Number of button presses
-
+    
+    //Function declarations
     function clear() {
-
+        stage = 0;
+        pressCount = 0;
+        decimal = false;
+        display.innerText = '';
+        fnum = '', operator = '', snum = '';
     }
 
     calcBody.addEventListener('click', (e) => {
@@ -64,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (button.matches('#clear')) clear();
                 else if (button.matches('#backspace')) backspace();
                 else if (button.matches('#equal')) equal();
+                break;
         }
     });
 });
