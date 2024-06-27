@@ -17,6 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
         fnum = '', operator = '', snum = '';
     }
 
+    function backspace () {
+        switch (stage) {
+            case 1:
+                fnum = fnum.slice(0, -1);
+                display.innerText = fnum;
+                if (fnum === '') stage--;
+                break;
+            case 2:
+                operator = '';
+                stage--;
+                break;
+            case 3:
+                snum = snum.slice(0, -1);
+                display.innerText = fnum + ' ' + operator + ' ' + snum;
+                if (snum === '') stage--;
+                break;
+            }
+    }
+
     function equal() {
         let result;
 
